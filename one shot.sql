@@ -118,4 +118,33 @@ select department from worker group by department; -- by default is same as dist
 -- group by having
 select department,count(department) from worker group by department having count(department)=2;
 	
+
+-- DDL
+-- unique check default
+    
+create table account(
+id int not null primary key,
+name varchar(25) unique,
+balance int,
+constraint acc_bal_chk check(balance>=1000)
+);
+
+insert into account values(1,"Kunal",1234);
+-- insert into account values(2,"Kunal",1235); GIVES ERROR BECAUSE NAME IS UNIQUE BUT I GIVE 2 SAME NAME
+-- insert into account values(3,"Tushar",123); GIVES ERROR BECAUSE BALANCE IS LESS TAHN 1000
+insert into account values(2,"Tushar",12343);
+
+
+-- Alter 
+	-- ADD
+    alter table account add interest float not null default 0;
+    -- Modify
+    alter table account modify interest double not null default 0;
+    -- change column
+    alter table account change column interest saving_interest float not null default 0;
+    -- drop column
+	alter table account drop column saving_interest;
+    -- rename
+    alter table account rename to account_details;
+
     
