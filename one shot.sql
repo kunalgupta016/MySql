@@ -148,3 +148,13 @@ insert into account values(2,"Tushar",12343);
     alter table account rename to account_details;
 
     
+-- DML
+-- INSERT 
+	insert into account_details (id,name) values(11,"Shubham"); -- abhhi balance nahi pataa
+    insert into account_details values(111,"jks",1111);
+-- UPDATE
+	update account_details set balance=1234 where id=11;
+-- delete
+	delete from account_details where id=111;
+
+	
